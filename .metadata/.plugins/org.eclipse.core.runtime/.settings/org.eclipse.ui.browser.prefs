@@ -1,4 +1,0 @@
-browser-choice=0
-browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="1">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Mozilla Firefox\\firefox.exe" name\="Firefox"/>\r\n<external location\="C\:\\Users\\Adam\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
-eclipse.preferences.version=1
-internalWebBrowserHistory=file\:///C\:/Projects/spring/gs-serving-web-content/initial/src/main/resources/templates/greeting.html|*|file\:/C\:/Projects/spring/gs-serving-web-content/initial/src/main/resources/templates/greeting.html|*|
