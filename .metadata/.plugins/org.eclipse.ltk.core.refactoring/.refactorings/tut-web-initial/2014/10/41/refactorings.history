@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Basket.java&apos; to &apos;tut-web-initial/src/main/java/com.yummynoodlebar.web.domain&apos;&#x0D;&#x0A;- Original project: &apos;tut-web-initial&apos;&#x0D;&#x0A;- Destination element: &apos;tut-web-initial/src/main/java/com.yummynoodlebar.web.domain&apos;&#x0D;&#x0A;- Original element: &apos;com.yummynoodlebar.core.domain.Basket.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java&lt;com.yummynoodlebar.web.domain" element1="/src\/main\/java&lt;com.yummynoodlebar.core.domain{Basket.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1412866475120" units="1" version="1.0"/>
+</session>
