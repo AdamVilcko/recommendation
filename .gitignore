@@ -1,3 +1,8 @@
 /recommendation-web/target
 /.metadata
 target
+/recommendation-bl/.classpath
+/recommendation-bl/.project
+/recommendation-ear/.project
+/recommendation-web/.classpath
+/recommendation-web/.project

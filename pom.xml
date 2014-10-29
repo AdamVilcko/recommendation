@@ -16,7 +16,7 @@
 	
 	<properties>
 		<!-- Shared version number properties -->
-		<org.springframework.version>3.2.3.RELEASE</org.springframework.version>
+		<org.springframework.version>4.1.1.RELEASE</org.springframework.version>
 		<javaee.api.version>7.0</javaee.api.version>
 		<jaxb.version>2.1</jaxb.version>
 	</properties>
@@ -235,6 +235,13 @@
 			  <groupId>org.springframework</groupId>
 			  <artifactId>spring-core</artifactId>
 			  <version>${org.springframework.version}</version>
+			</dependency>
+
+			<!-- Spring boot auto configuration. -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-autoconfigure</artifactId>
+				<version>1.1.8.RELEASE</version>
 			</dependency>
 
 			<!--

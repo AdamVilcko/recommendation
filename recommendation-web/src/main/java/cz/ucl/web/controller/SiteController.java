@@ -12,7 +12,7 @@ public class SiteController {
 	@ResponseBody
 	@RequestMapping(method=RequestMethod.GET)
 	public String getContent() {
-		return "Ahoj svìte!";
+		return "Ahoj svete!";
 	}
 
 }
