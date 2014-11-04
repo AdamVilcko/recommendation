@@ -17,7 +17,7 @@
 	</context-param>
 	<context-param>
 		<param-name>contextInitializerClasses</param-name>
-		<param-value>cz.kb.efile.configuration.SpringContextInitializer</param-value>
+		<param-value>cz.ucl.config.SpringContextInitializer</param-value>
 	</context-param>
 	
 	<!-- Context listener -->
@@ -72,9 +72,5 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-
-	<!-- error-page>
-		<location>/error.html</location>
-	</error-page -->
 
 </web-app>
