@@ -11,7 +11,7 @@
 	<description>Recommendation engine provided application context</description>
 
 	<context:component-scan  base-package="cz.ucl.web.controller">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	<context:annotation-config />
 
