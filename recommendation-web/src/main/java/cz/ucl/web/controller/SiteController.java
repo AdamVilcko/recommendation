@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SiteController {
 
-	@RequestMapping("/")
+	@RequestMapping("/recom")
 	public String getContent(Model model) {
 		model.addAttribute("name", "Adam");
 		return "index";

@@ -16,6 +16,6 @@
 	<mvc:default-servlet-handler />
 
 	<!-- Register the controllers -->
-	<context:component-scan base-package="cz.unicorncollege.web.controller" />
+	<context:component-scan base-package="cz.ucl.web.controller" />
 
 </beans>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator" />
+
+	<!-- project specific properties -->
+	<property name="LOGGING_APP_NAME" value="RECOM" />
+	<property name="LOGGING_APP_FULL_NAME" value="RECOM-1.0" />
+	<property name="LOGGING_APP_LOGS_DIR" value="c:/projects/logs/rommendation-engine/" />
+	<property name="LOGGING_FILE_PATH_PREFIX" value="${LOGGING_APP_LOGS_DIR}/${LOGGING_APP_FULL_NAME}/${LOGGING_APP_FULL_NAME}" />
+	<contextName>${LOGGING_APP_FULL_NAME}</contextName>
+
+	<!-- - - - - - -->
+	<!-- APPENDERS -->
+	<!-- - - - - - -->
+
+	<appender name="CBS_MAIN_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGGING_FILE_PATH_PREFIX}_main.log</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>TRACE</level>
+		</filter>
+		<encoder>
+			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_main.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="CBS_CLIENT_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGGING_FILE_PATH_PREFIX}_client.log</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder>
+			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_client.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="KB_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGGING_FILE_PATH_PREFIX}_kb.log</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder>
+			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_kb.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<appender name="WARN_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGGING_FILE_PATH_PREFIX}_warn.log</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<encoder>
+			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_warn.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="CBS_ITO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGGING_FILE_PATH_PREFIX}_monitoring.log</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator>
+				<expression>return logger == "LOG#ITO";</expression>
+			</evaluator>
+			<OnMismatch>DENY</OnMismatch>
+			<OnMatch>NEUTRAL</OnMatch>
+		</filter>
+		<encoder>
+			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_monitoring.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="SOAP_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGGING_FILE_PATH_PREFIX}_soap.log</file>
+		<append>true</append>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<encoder>
+			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_soap.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="SQL_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGGING_FILE_PATH_PREFIX}_sql.log</file>
+		<append>true</append>
+		<!--filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter-->
+		<encoder>
+			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_sql.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<!-- - - - - -->
+	<!-- LOGGERS -->
+	<!-- - - - - -->
+
+	<logger name="org.hibernate" additivity="false" level="DEBUG">
+		<appender-ref ref="SQL_LOG" />
+	</logger>
+	<logger name="org.springframework" additivity="false" level="DEBUG">
+		<appender-ref ref="CBS_MAIN_LOG" />
+		<appender-ref ref="CBS_ITO" />
+		<appender-ref ref="WARN_LOG" />
+	</logger>
+	<logger name="cz.kb.common.context.ws.handler.FileLoggingHandler" additivity="false" level="DEBUG">
+		<appender-ref ref="SOAP_LOG" />
+	</logger>
+	<logger name="cz.kb.common" additivity="false" level="DEBUG">
+		<appender-ref ref="CBS_MAIN_LOG" />
+		<appender-ref ref="CBS_ITO" />
+		<appender-ref ref="WARN_LOG" />
+	</logger>
+	<logger name="cz.kb.efile.core.services.message" additivity="false" level="DEBUG">
+		<appender-ref ref="CBS_MAIN_LOG" />
+		<appender-ref ref="CBS_CLIENT_LOG" />
+	</logger>
+	<logger name="cz.kb.efile" additivity="false" level="TRACE">
+		<appender-ref ref="CBS_MAIN_LOG" />
+		<appender-ref ref="CBS_ITO" />
+		<appender-ref ref="WARN_LOG" />
+	</logger>
+	<logger name="cz.kb" additivity="false" level="INFO">
+		<appender-ref ref="CBS_CLIENT_LOG" />
+		<appender-ref ref="KB_LOG" />
+		<appender-ref ref="WARN_LOG" />
+	</logger>
+	<root level="WARN">
+		<appender-ref ref="WARN_LOG" />
+	</root>
+</configuration>

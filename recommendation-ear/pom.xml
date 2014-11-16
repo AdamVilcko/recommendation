@@ -26,7 +26,7 @@
 				<artifactId>maven-ear-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<finalName>recommendation-ear-${project.version}.ear</finalName>
+					<finalName>recommendation-ear-${project.version}</finalName>
 					<version>5</version>
 					<generatedDescriptorLocation>${basedir}/src/main/application/META-INF</generatedDescriptorLocation>
 					<modules>

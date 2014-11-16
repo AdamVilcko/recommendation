@@ -3,21 +3,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
-	<display-name>${prj.name} - rest web services module</display-name>
+	<display-name>${prj.name} - MVC services module</display-name>
 	<description>${prj.name} - ${pom.name}</description>
 	
 	<!-- Context parameters -->
 	<context-param>
 		<param-name>spring.profiles.active</param-name>
-		<param-value>production</param-value>
+		<param-value>development</param-value>
 	</context-param>
 	<context-param>
 		<param-name>configuration</param-name>
 		<param-value>development</param-value>
-	</context-param>
-	<context-param>
-		<param-name>contextInitializerClasses</param-name>
-		<param-value>cz.ucl.config.SpringContextInitializer</param-value>
 	</context-param>
 
 	<!-- Context listener -->
@@ -45,16 +41,14 @@
 
 	<!-- Spring dispatching servlet -->
 	<servlet>
-		<servlet-name>rest</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-
-		<!-- Spring's context is loaded from the rest-servlet.xml -->
-	</servlet>
+        <servlet-name>recom</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
 	<servlet-mapping>
-		<servlet-name>rest</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<servlet-name>recom</servlet-name>
+		<url-pattern>/recom/*</url-pattern>
 	</servlet-mapping>
 
 	<!-- Resources references -->
