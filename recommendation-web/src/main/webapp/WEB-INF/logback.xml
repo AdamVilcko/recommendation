@@ -99,52 +99,14 @@
 		</rollingPolicy>
 	</appender>
 
-	<appender name="SOAP_LOG"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOGGING_FILE_PATH_PREFIX}_soap.log</file>
-		<append>true</append>
-		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>DEBUG</level>
-		</filter>
-		<encoder>
-			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
-		</encoder>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_soap.log.%d{yyyy-MM-dd}</fileNamePattern>
-			<maxHistory>30</maxHistory>
-		</rollingPolicy>
-	</appender>
-
-	<appender name="SQL_LOG"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOGGING_FILE_PATH_PREFIX}_sql.log</file>
-		<append>true</append>
-		<!--filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>DEBUG</level>
-		</filter-->
-		<encoder>
-			<pattern>%d [%thread]%-5level %X{correlationApplication:-N/A}:%X{correlationGuid:-N/A} %logger{0} - %msg%n</pattern>
-		</encoder>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOGGING_FILE_PATH_PREFIX}_sql.log.%d{yyyy-MM-dd}</fileNamePattern>
-			<maxHistory>30</maxHistory>
-		</rollingPolicy>
-	</appender>
-
 	<!-- - - - - -->
 	<!-- LOGGERS -->
 	<!-- - - - - -->
 
-	<logger name="org.hibernate" additivity="false" level="DEBUG">
-		<appender-ref ref="SQL_LOG" />
-	</logger>
 	<logger name="org.springframework" additivity="false" level="DEBUG">
 		<appender-ref ref="CBS_MAIN_LOG" />
 		<appender-ref ref="CBS_ITO" />
 		<appender-ref ref="WARN_LOG" />
-	</logger>
-	<logger name="cz.kb.common.context.ws.handler.FileLoggingHandler" additivity="false" level="DEBUG">
-		<appender-ref ref="SOAP_LOG" />
 	</logger>
 	<logger name="cz.kb.common" additivity="false" level="DEBUG">
 		<appender-ref ref="CBS_MAIN_LOG" />

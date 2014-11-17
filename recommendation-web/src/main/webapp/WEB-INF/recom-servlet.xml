@@ -10,8 +10,8 @@
 
 	<description>Configuration of the Spring's MVC dispatcher servlet</description>
 
-	<!-- Configure MVC front controller -->
-	<mvc:annotation-driven />
+	<!--  SPRING ANNOTATION PROCESSING -->
+	<mvc:annotation-driven conversion-service="conversionService" />
 
 	<!-- Add static content handler -> dispatches the request on the static content do the default servlet -->
 	<mvc:default-servlet-handler />
@@ -19,11 +19,30 @@
 	<!-- Register the controllers -->
 	<context:component-scan base-package="cz.ucl.web.controller" />
 
+	<!--  Thymeleaf-specific artifacts -->
+	<!--  TemplateResolver <- TemplateEngine <- ViewResolver -->
 
-	<bean id="viewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver" />
+	</bean>
+
+	<bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".html" />
+		<property name="templateMode" value="HTML5" />
+	</bean>
+
+	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
 		<property name="templateEngine" ref="templateEngine" />
 		<property name="order" value="1" />
-		<property name="viewNames" value="*.html,*.xhtml" />
+	</bean>
+
+	<!--  CONVERSION SERVICE                                              -->
+	<!--  Standard Spring formatting-enabled implementation               -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+			<set />
+		</property>
 	</bean>
 
 </beans>

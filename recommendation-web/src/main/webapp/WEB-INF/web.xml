@@ -48,13 +48,7 @@
 
 	<servlet-mapping>
 		<servlet-name>recom</servlet-name>
-		<url-pattern>/recom/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-	<!-- Resources references -->
-
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
 
 </web-app>

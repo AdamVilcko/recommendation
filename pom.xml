@@ -16,7 +16,7 @@
 	
 	<properties>
 		<!-- Shared version number properties -->
-		<org.springframework.version>4.1.1.RELEASE</org.springframework.version>
+		<org.springframework.version>4.1.2.RELEASE</org.springframework.version>
 		<javaee.api.version>7.0</javaee.api.version>
 		<jaxb.version>2.1</jaxb.version>
 	</properties>
@@ -73,7 +73,7 @@
 			 <plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>1.7</version>
-			 </plugin>       
+			 </plugin>
 			 <plugin>
 			   <artifactId>maven-assembly-plugin</artifactId>
 			   <version>2.4.1</version>
@@ -109,40 +109,36 @@
 			 <plugin>
 			   <artifactId>maven-jar-plugin</artifactId>
 				<version>2.4</version>
-			 </plugin>
-			 <plugin>
-			   <artifactId>maven-javadoc-plugin</artifactId>
-			   <version>2.5</version>
-			 </plugin>
-			 <plugin>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+			<plugin>
 				<artifactId>maven-plugin-plugin</artifactId>
 				<version>3.3</version>
 			 </plugin>
 			 <plugin>
 			   <artifactId>maven-rar-plugin</artifactId>
 			   <version>2.2</version>
-			 </plugin>        
-			 <plugin>
-			   <artifactId>maven-release-plugin</artifactId>
-			   <version>2.5</version>
-			 </plugin>
-			 <plugin>                
-			   <artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.7</version>
-			 </plugin>
-			 <plugin>
+			</plugin>
+			<plugin>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.4</version>
-			 </plugin>
-			 <plugin>
+			</plugin>
+			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>2.3</version>
-			 </plugin>         
-			 <plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.17</version>
-			 </plugin>
-			 <plugin>
+			</plugin>
+			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.4</version>
 			 </plugin>
@@ -232,9 +228,15 @@
 				Core utilities used by other modules.
 			-->
 			<dependency>
-			  <groupId>org.springframework</groupId>
-			  <artifactId>spring-core</artifactId>
-			  <version>${org.springframework.version}</version>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${org.springframework.version}</version>
+				<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 			</dependency>
 
 			<!-- Spring boot auto configuration. -->
@@ -364,6 +366,29 @@
 			  <version>${org.springframework.version}</version>
 			  <scope>test</scope>
 			</dependency>
+
+			<!-- Logging feature. -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>1.5.8</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.5.8</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.5.8</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.14</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

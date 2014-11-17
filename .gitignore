@@ -6,3 +6,4 @@ target
 /recommendation-ear/.project
 /recommendation-web/.classpath
 /recommendation-web/.project
+/RemoteSystemsTempFiles/*.project
