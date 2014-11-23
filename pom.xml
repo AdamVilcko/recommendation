@@ -19,6 +19,12 @@
 		<org.springframework.version>4.1.2.RELEASE</org.springframework.version>
 		<javaee.api.version>7.0</javaee.api.version>
 		<jaxb.version>2.1</jaxb.version>
+
+		<!-- Logging -->
+		<logback.version>1.0.13</logback.version>
+		<slf4j.version>1.7.2</slf4j.version>
+		<janino.version>2.5.10</janino.version>
+		<commons.logging>1.1.1</commons.logging>
 	</properties>
 
 	<repositories>
@@ -71,10 +77,6 @@
 		<pluginManagement>
 		   <plugins>
 			 <plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
-			 </plugin>
-			 <plugin>
 			   <artifactId>maven-assembly-plugin</artifactId>
 			   <version>2.4.1</version>
 			 </plugin>         
@@ -99,10 +101,6 @@
 			   <version>2.9.1</version>
 			 </plugin>
 			 <plugin>
-			   <artifactId>maven-ejb-plugin</artifactId>
-			   <version>2.4</version>
-			 </plugin>
-			 <plugin>
 			   <artifactId>maven-install-plugin</artifactId>
 			   <version>2.5.2</version>
 			 </plugin>
@@ -118,10 +116,6 @@
 				<artifactId>maven-plugin-plugin</artifactId>
 				<version>3.3</version>
 			 </plugin>
-			 <plugin>
-			   <artifactId>maven-rar-plugin</artifactId>
-			   <version>2.2</version>
-			</plugin>
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5</version>
@@ -129,10 +123,6 @@
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.7</version>
-			</plugin>
-			<plugin>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.4</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
@@ -367,26 +357,32 @@
 			  <scope>test</scope>
 			</dependency>
 
-			<!-- Logging feature. -->
+			<!-- Logging -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>jcl-over-slf4j</artifactId>
-				<version>1.5.8</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>1.5.8</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>1.5.8</version>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.14</version>
+				<groupId>janino</groupId>
+				<artifactId>janino</artifactId>
+				<version>${janino.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<scope>test</scope>
+				<version>${commons.logging}</version>
 			</dependency>
 
 		</dependencies>

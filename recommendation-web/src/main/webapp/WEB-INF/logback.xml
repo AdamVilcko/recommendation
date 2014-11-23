@@ -6,7 +6,7 @@
 	<property name="LOGGING_APP_NAME" value="RECOM" />
 	<property name="LOGGING_APP_FULL_NAME" value="RECOM-1.0" />
 	<property name="LOGGING_APP_LOGS_DIR" value="c:/projects/logs/rommendation-engine/" />
-	<property name="LOGGING_FILE_PATH_PREFIX" value="${LOGGING_APP_LOGS_DIR}/${LOGGING_APP_FULL_NAME}/${LOGGING_APP_FULL_NAME}" />
+	<property name="LOGGING_FILE_PATH_PREFIX" value="${LOGGING_APP_LOGS_DIR}/${LOGGING_APP_FULL_NAME}" />
 	<contextName>${LOGGING_APP_FULL_NAME}</contextName>
 
 	<!-- - - - - - -->
