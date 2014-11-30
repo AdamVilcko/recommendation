@@ -79,29 +79,28 @@
 							</execution>
 						</executions>
 					</plugin>
-					
 					<plugin>
 						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
-						  <execution>
-							<id>copy-resources</id>
-							<!-- here the phase you need -->
-							<phase>validate</phase>
-							<goals>
-							  <goal>copy-resources</goal>
-							</goals>
-							<configuration>
-							  <outputDirectory>${basedir}/target/app-conf</outputDirectory>
-							  <resources>          
-								<resource>
-									<directory>src/main/resourcesExported</directory>
-									<filtering>true</filtering>
-								</resource>
-							  </resources>              
-							</configuration>            
-						  </execution>
+							<execution>
+								<id>copy-resources</id>
+								<!-- here the phase you need -->
+								<phase>validate</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/target/app-conf</outputDirectory>
+									<resources>
+										<resource>
+											<directory>src/main/resourcesExported</directory>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
 						</executions>
-					  </plugin>
+					</plugin>
 
 				</plugins>
 			</build>
@@ -199,6 +198,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>

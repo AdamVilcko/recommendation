@@ -60,7 +60,7 @@
 
 	<dependencies>
 		<!-- project modules -->
-		
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -69,33 +69,47 @@
 
 		<!-- Thumblr API -->
 		<dependency>
-		  <groupId>com.tumblr</groupId>
-		  <artifactId>jumblr</artifactId>
-		  <version>0.0.6</version>
+			<groupId>com.tumblr</groupId>
+			<artifactId>jumblr</artifactId>
+			<version>0.0.8</version>
+		</dependency>
+
+		<!-- Spring -->		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.social</groupId>
-			<artifactId>spring-social-tumblr</artifactId>
-			<version>1.1.0.M1</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+				
+
 		<!-- JUnit -->
-		<groupId>junit</groupId>
-		  <artifactId>junit</artifactId>
-		  <version>3.8.1</version>
-		  <scope>test</scope>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
 		</dependency>
-		
+
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>sdouglass-releases</id>
-			<url>https://raw.github.com/sdouglass/sdouglass-maven-repo/master/releases</url>
-		</repository>
-	</repositories>
-
 
 </project>

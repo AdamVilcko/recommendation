@@ -10,7 +10,7 @@
 
 	<description>Recommendation engine provided application context</description>
 
-	<context:component-scan  base-package="cz.ucl.web.controller">
+	<context:component-scan  base-package="cz.ucl.recom">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	

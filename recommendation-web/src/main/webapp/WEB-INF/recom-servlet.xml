@@ -17,7 +17,7 @@
 	<mvc:default-servlet-handler />
 
 	<!-- Register the controllers -->
-	<context:component-scan base-package="cz.ucl.web.controller" />
+	<context:component-scan base-package="cz.ucl.recom.controller" />
 
 	<!--  Thymeleaf-specific artifacts -->
 	<!--  TemplateResolver <- TemplateEngine <- ViewResolver -->
