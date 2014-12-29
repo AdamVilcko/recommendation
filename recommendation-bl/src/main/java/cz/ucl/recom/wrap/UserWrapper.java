@@ -21,7 +21,7 @@ public class UserWrapper {
 	private final User user;
 
 	/** Distance measure for a recommendation. */
-	private double distance = 0;
+	private Double distance = new Double(0);
 
 	/**
 	 * Getter for a user.
@@ -37,7 +37,7 @@ public class UserWrapper {
 	 *
 	 * @return Distance measure from fundamental blog.
 	 */
-	public double getDistance() {
+	public Double getDistance() {
 		return distance;
 	}
 
@@ -46,7 +46,7 @@ public class UserWrapper {
 	 *
 	 * @param distance
 	 */
-	public void setDistance(double distance) {
+	public void setDistance(Double distance) {
 		this.distance = distance;
 	}
 

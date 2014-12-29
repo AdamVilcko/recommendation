@@ -1,6 +1,6 @@
 package cz.ucl.recom.services;
 
-import java.util.Set;
+import java.util.List;
 
 import cz.ucl.recom.wrap.UserWrapper;
 
@@ -17,6 +17,6 @@ public interface RecommendationComponent {
 	 *
 	 * @return List of recommended users.
 	 */
-	Set<UserWrapper> getRecommendedUsers();
+	List<UserWrapper> getFriendsStatistic();
 
 }
