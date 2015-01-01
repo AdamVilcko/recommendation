@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Twitter recommender | Adam Vilčko</title>
+	<title>Twitter recommender | User Detail</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="../styles/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<h1>Doporučování</h1>
-	<p>Doporučování na základě podobnosti uživatelských oblíbených příspěvků na mikroblogovací síti <a href="https://twitter.com">Twitter</a>&reg;.</p>
 
 	<div id="wrapper">
 
 		<div id="left-pane">
-			<div>
-				<p>Firefox</p>
-				<p>0.0101</p>
-				<a href="/recom/userdetail/2142731">See User Detail</a>
-			</div>
+			<p>Uživatel: <span th:text="${user.name}">Name</span></p>
+			<p>Popis: <span th:text="${user.description}">Description</span></p>
+			<p><a th:href="@{${user.URL}}">URL</a></p>
+		</div>
 
+		<div id="right-pane">
 			<div th:each="r : ${recom}">
 				<p th:text="${r.user.name}">User name</p>
 				<p th:text="${r.distance}">Distance</p>
-				<a href="userdetail.html" th:href="@{/userdetail/__${r.user.id}__}">See User Detail</a>
 			</div>
 		</div>
 

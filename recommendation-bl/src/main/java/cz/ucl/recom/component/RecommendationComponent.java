@@ -1,7 +1,8 @@
-package cz.ucl.recom.services;
+package cz.ucl.recom.component;
 
 import java.util.List;
 
+import cz.ucl.recom.engine.Distance;
 import cz.ucl.recom.wrap.UserWrapper;
 
 /**
@@ -17,6 +18,6 @@ public interface RecommendationComponent {
 	 *
 	 * @return List of recommended users.
 	 */
-	List<UserWrapper> getFriendsStatistic();
+	List<UserWrapper> getFriendsStatistic(Distance distance);
 
 }
