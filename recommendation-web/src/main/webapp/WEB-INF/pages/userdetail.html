@@ -18,10 +18,9 @@
 
 		<div id="right-pane">
 			<div th:each="r : ${recom}">
-				<p th:text="${r.user.name}">User name</p>
-				<p th:text="${r.distance}">Distance</p>
-				<p th:text="${r.favoriteStatuses}">Favorite statuses</p>
-				<a href="userdetail.html" th:href="@{/userdetail/__${r.user.id}__}">See User Detail</a>
+				<a href="userdetail.html" th:href="@{/userdetail/__${r.user.id}__}"><span th:text="${r.user.name}">User name</span></a>
+				<span>Podobnost: <p th:text="${r.distance}">Distance</p></span>
+				<span>Vybraných statusů: <p th:text="${r.favoriteStatuses}">Favorite statuses</p></span>
 			</div>
 		</div>
 
