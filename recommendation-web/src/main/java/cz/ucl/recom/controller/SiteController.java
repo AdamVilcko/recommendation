@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import twitter4j.Twitter;
 import cz.ucl.recom.component.RecommendationComponent;
@@ -22,7 +21,6 @@ import cz.ucl.recom.wrap.UserWrapper;
  */
 @Controller
 @RequestMapping("/")
-@SessionAttributes("recom")
 public class SiteController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SiteController.class);
@@ -39,8 +37,10 @@ public class SiteController {
 			LOG.trace("Getting web site index page. - START");
 		}
 
-		List<UserWrapper> recom = recommendation.getFriendsStatistic(Distance.JACARD_DISTANCE);
-		model.addAttribute("recom", recom);
+		if (!model.containsAttribute("recom")) {
+			List<UserWrapper> recom = recommendation.getFriendsStatistic(Distance.JACARD_DISTANCE);
+			model.addAttribute("recom", recom);
+		}
 
 		return "index";
 	}

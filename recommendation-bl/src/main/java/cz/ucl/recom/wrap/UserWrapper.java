@@ -23,6 +23,9 @@ public class UserWrapper {
 	/** Distance measure for a recommendation. */
 	private Double distance = new Double(0);
 
+	/** Number of favorite statuses returned by Twitter API. */
+	private int favoriteStatuses;
+
 	/**
 	 * Getter for a user.
 	 *
@@ -48,6 +51,20 @@ public class UserWrapper {
 	 */
 	public void setDistance(Double distance) {
 		this.distance = distance;
+	}
+
+	/**
+	 * @return the favoriteStatuses
+	 */
+	public int getFavoriteStatuses() {
+		return favoriteStatuses;
+	}
+
+	/**
+	 * @param favoriteStatuses the favoriteStatuses to set
+	 */
+	public void setFavoriteStatuses(int favoriteStatuses) {
+		this.favoriteStatuses = favoriteStatuses;
 	}
 
 }

@@ -30,7 +30,7 @@ public class TwitterComponentImpl implements TwitterComponent {
 
 	/**
 	 * Request rate limits for application authentication.
-	 * {@link https://dev.twitter.com/rest/public/rate-limits}
+	 * Request limits  <a href="https://dev.twitter.com/rest/public/rate-limits">here</a>.
 	 */
 	private static final int REQUEST_RATE_LIMIT_ERROR_CODE = 88;
 
@@ -44,14 +44,38 @@ public class TwitterComponentImpl implements TwitterComponent {
 	@Override
 	public User getUserDetail(Long userId) {
 		if (LOG.isTraceEnabled()) {
-			LOG.trace("getFavoriteStatuses() - start");
+			LOG.trace(String.format("getUserDetail(%f) - start", userId));
 		}
 
 		User result = null;
 		try {
 			result = twitter.showUser(userId);
 		} catch (TwitterException e) {
-			final String err = "";
+			final String err = "User detail could not be loaded.";
+			LOG.error(err, e);
+
+			if (e.getErrorCode() == REQUEST_RATE_LIMIT_ERROR_CODE) {
+				return result;
+			}
+		}
+
+		return result;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public PagableResponseList<User> getUserFriends(Long userId) {
+		if (LOG.isTraceEnabled()) {
+			LOG.trace(String.format("getUserFriends(%f) - start", userId));
+		}
+
+		PagableResponseList<User> result = null;
+		try {
+			result = twitter.getFriendsList(userId, -1);
+		} catch (TwitterException e) {
+			final String err = "Friends list could not be loaded.";
 			LOG.error(err, e);
 
 			if (e.getErrorCode() == REQUEST_RATE_LIMIT_ERROR_CODE) {
@@ -77,7 +101,7 @@ public class TwitterComponentImpl implements TwitterComponent {
 		try {
 			favorites = favResource.getFavorites();
 		} catch (TwitterException e) {
-			final String err = "Twitter service or network is unavailable.";
+			final String err = "Favorite statuses could not be loaded.";
 			LOG.error(err, e);
 
 			if (e.getErrorCode() == REQUEST_RATE_LIMIT_ERROR_CODE) {
@@ -114,10 +138,25 @@ public class TwitterComponentImpl implements TwitterComponent {
 			}
 		}
 
+		result.putAll(getFriendsFavoriteStatuses(myId));
+
+		return result;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Map<User, ResponseList<Status>> getFriendsFavoriteStatuses(Long userId) {
+		if (LOG.isTraceEnabled()) {
+			LOG.trace("getFriendsFavoriteStatuses() - start");
+		}
+
+		Map<User, ResponseList<Status>> result = new LinkedHashMap<User, ResponseList<Status>>();
+
 		FriendsFollowersResources res = twitter.friendsFollowers();
 		PagableResponseList<User> users = null;
 		try {
-			users = res.getFriendsList(myId, -1);
+			users = res.getFriendsList(userId, -1);
 		} catch (TwitterException e) {
 			final String err = "Friends list could not be loaded.";
 			LOG.error(err, e);

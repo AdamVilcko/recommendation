@@ -3,7 +3,7 @@
 <head>
 	<title>Twitter recommender | Adam Vilčko</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link href="../styles/styles.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="../styles/main.css" th:href="@{/styles/main.css}" />
 </head>
 <body>
 	<h1>Doporučování</h1>
@@ -21,6 +21,7 @@
 			<div th:each="r : ${recom}">
 				<p th:text="${r.user.name}">User name</p>
 				<p th:text="${r.distance}">Distance</p>
+				<p th:text="${r.favoriteStatuses}">Favorite statuses</p>
 				<a href="userdetail.html" th:href="@{/userdetail/__${r.user.id}__}">See User Detail</a>
 			</div>
 		</div>
