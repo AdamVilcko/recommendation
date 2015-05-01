@@ -26,10 +26,10 @@ public class TwitterConfiguration {
 
 		ConfigurationBuilder cb = new ConfigurationBuilder();
 		cb.setDebugEnabled(true);
-		cb.setOAuthConsumerKey("rVj1KCrvD2WnaQvWZLd2NzAVm");
-		cb.setOAuthConsumerSecret("no4mnQw5nNFXvkdKle7xgWq4FbSRJy9vIBav3NHmYWoEeAc0v2");
-		cb.setOAuthAccessToken("441062401-rzk7qXca0IpfF2s5okTtaJ3xxeoJfwMLfmZVffbp");
-		cb.setOAuthAccessTokenSecret("BSmOzjNiCNW52RrNWKpd7VF7OP9uITZOf1bzfuTJ5Z24l");
+		cb.setOAuthConsumerKey("generate_your_own");
+		cb.setOAuthConsumerSecret("generate_your_own");
+		cb.setOAuthAccessToken("generate_your_own");
+		cb.setOAuthAccessTokenSecret("generate_your_own");
 		TwitterFactory tweet = new TwitterFactory(cb.build());
 		Twitter twitter = tweet.getInstance();
 		return twitter;
