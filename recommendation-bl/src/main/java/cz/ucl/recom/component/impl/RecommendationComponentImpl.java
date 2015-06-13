@@ -72,7 +72,7 @@ public class RecommendationComponentImpl implements RecommendationComponent {
 
 		if (LOG.isInfoEnabled() && referenceFavorites != null) {
 			int size = referenceFavorites.size();
-			LOG.info(String.format("Size of reference favorite list: ", size));
+			LOG.info(String.format("Size of reference favorite list: %d", size));
 		}
 
 		Map<User,ResponseList<Status>> friendsFavorites = twitter.getFriendsFavoriteStatuses();

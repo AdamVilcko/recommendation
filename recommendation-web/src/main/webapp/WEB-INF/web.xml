@@ -5,7 +5,7 @@
 
 	<display-name>${prj.name} - MVC services module</display-name>
 	<description>${prj.name} - ${pom.name}</description>
-	
+
 	<!-- Context parameters -->
 	<context-param>
 		<param-name>spring.profiles.active</param-name>
@@ -41,10 +41,10 @@
 
 	<!-- Spring dispatching servlet -->
 	<servlet>
-        <servlet-name>recom</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+		<servlet-name>recom</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>recom</servlet-name>
