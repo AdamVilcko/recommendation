@@ -34,7 +34,9 @@
 
 		<div id="recommendation-pane">
 
-			<div class="description-label">Generovaná doporučení referenčnímu uživateli ...</div>
+			<div class="description-label" title="Doporučení, která jsou generována referenčnímu uživateli, který je přihlášen k aplikaci">
+				Generovaná doporučení ...
+			</div>
 
 			<div th:each="r : ${recom}">
 				<a href="userdetail.html" th:href="@{/userdetail/__${r.user.id}__}"><span th:text="${r.user.name}">User name</span></a>
