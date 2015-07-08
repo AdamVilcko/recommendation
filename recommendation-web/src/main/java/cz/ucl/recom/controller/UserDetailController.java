@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import twitter4j.Status;
 import twitter4j.User;
 import cz.ucl.recom.component.RecommendationComponent;
 import cz.ucl.recom.component.TwitterComponent;
@@ -46,6 +47,15 @@ public class UserDetailController {
 				model.addAttribute("user", uw.getUser());
 				break;
 			}
+		}
+
+		List<Status> statuses = null;
+		if (!model.containsAttribute("statuses")) {
+			statuses = twitter.getUserTimeline(userId);
+		}
+
+		if (statuses != null) {
+			model.addAttribute("statuses", statuses);
 		}
 
 		if (!model.containsAttribute("user")) {

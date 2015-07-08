@@ -1,5 +1,6 @@
 package cz.ucl.recom.component;
 
+import java.util.List;
 import java.util.Map;
 
 import twitter4j.PagableResponseList;
@@ -16,10 +17,18 @@ public interface TwitterComponent {
 	/**
 	 * Gets the User information from Twitter service for given user ID.
 	 *
-	 * @param userId ID of an user for whom the information will be returned.
+	 * @param userId ID of an user to whom the information will be returned.
 	 * @return User information for the given user ID.
 	 */
 	User getUserDetail(Long userId);
+
+	/**
+	 * Gets time-line statuses for user with given ID.
+	 *
+	 * @param userId ID of an user to whom the statuses will be returned.
+	 * @return User time-line statuses.
+	 */
+	List<Status> getUserTimeline(Long id);
 
 	/**
 	 * Gets the response list of user friends from Twitter API for the give user ID.

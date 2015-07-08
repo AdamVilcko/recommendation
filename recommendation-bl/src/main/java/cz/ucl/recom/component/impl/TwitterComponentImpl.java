@@ -1,6 +1,7 @@
 package cz.ucl.recom.component.impl;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
@@ -60,6 +61,26 @@ public class TwitterComponentImpl implements TwitterComponent {
 		}
 
 		return result;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public List<Status> getUserTimeline(Long id) {
+		List<Status> statuses = null;
+
+		try {
+			statuses = twitter.getUserTimeline(id);
+		} catch (TwitterException e) {
+			final String err = "Timeline statuses for user with id = %d could not be loaded.";
+			LOG.error(String.format(err, id), e);
+
+			if (e.getErrorCode() == REQUEST_RATE_LIMIT_ERROR_CODE) {
+				return statuses;
+			}
+		}
+
+		return statuses;
 	}
 
 	/**
